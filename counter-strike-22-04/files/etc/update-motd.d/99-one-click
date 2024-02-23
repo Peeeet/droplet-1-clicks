@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# Configured as part of the DigitalOcean 1-Click Image build process
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+********************************************************************************
+
+Welcome to DigitalOcean's 1-Click Counter Strike Droplet.
+
+All ports are BLOCKED except 22 (SSH), 27015/tcp and 27015/udp.
+
+* You can SSH to this Droplet in a terminal as root: ssh root@$myip
+
+* This droplet is powered by LinuxGSM and the installation available at:
+    /home/steam/lgsm
+
+* To manage the server, login as steam user:
+$ su - steam
+
+Usage: ./cs2server [option]
+
+Commands
+start         st   | Start the server.
+stop          sp   | Stop the server.
+restart       r    | Restart the server.
+monitor       m    | Check server status and restart if crashed.
+test-alert    ta   | Send a test alert.
+details       dt   | Display server information.
+postdetails   pd   | Post details to termbin.com (removing passwords).
+skeleton      sk   | Create a skeleton directory.
+update-lgsm   ul   | Check and apply any LinuxGSM updates.
+update        u    | Check and apply any server updates.
+check-update  cu   | Check if a gameserver update is available
+force-update  fu   | Apply server updates bypassing check.
+validate      v    | Validate server files with SteamCMD.
+backup        b    | Create backup archives of the server.
+console       c    | Access server console.
+debug         d    | Start server directly in your terminal.
+send          sd   | Send command to game server console.
+install       i    | Install the server.
+auto-install  ai   | Install the server without prompts.
+developer     dev  | Enable developer Mode.
+sponsor       s    | Sponsorship options.
+
+* To run the server using the default configuration, run the following commands as steam user:
+
+$ ./cs2server start
+
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+#su - steam
+echo "test" >> /var/log/cloud_output_test.log
+#./cs2server update-lgsm && ./cs2server update
+
+# Remove the ssh force logout command
+sed -e '/Match User root/d' \
+    -e '/.*ForceCommand.*droplet.*/d' \
+    -i /etc/ssh/sshd_config
+
+systemctl restart ssh
