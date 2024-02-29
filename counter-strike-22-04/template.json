@@ -3,7 +3,7 @@
   "variables": {
     "do_api_token": "{{env `DIGITALOCEAN_API_TOKEN`}}",
     "image_name": "counter-strike-22-04-snapshot-{{timestamp}}",
-    "apt_packages": "wget tar binutils jq bsdmainutils bzip2 netcat unzip lib32gcc-s1 lib32stdc++6 libsdl2-2.0-0:i386 steamcmd",
+    "apt_packages": "wget tar binutils jq bsdmainutils bzip2 netcat unzip lib32gcc-s1 lib32stdc++6 libsdl2-2.0-0:i386 steamcmd apt-transport-https ca-certificates curl jq linux-image-extra-virtual software-properties-common libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6",
     "application_name": "Counter Strike 2",
     "application_version": "latest"
   },
@@ -41,7 +41,6 @@
       "source": "counter-strike-22-04/files/var/",
       "destination": "/var/"
     },
-
     {
       "type": "shell",
       "environment_vars": [

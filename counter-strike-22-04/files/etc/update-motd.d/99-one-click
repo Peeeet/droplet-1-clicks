@@ -47,5 +47,23 @@ sponsor       s    | Sponsorship options.
 
 $ ./cs2server start
 
+* To connect to this game server, run the following commands within the Counter Strike Developer Console:
+
+$ connect $myip:27015
+
+* To customize the server, edit the server configuration file at:
+
+    /home/steam/serverfiles/game/csgo/cfg/cs2server.cfg
+
+* Change ports or override the startup arguments by editing the parameters in:
+
+    /home/steam/lgsm/config-lgsm/cs2server/cs2server.cfg
+
+* After setting the desired port, allow the ports in the firewall
+  by running the following commands as root:
+
+$ ufw allow <PORT_NUMBER>/tcp
+$ ufw allow <PORT_NUMBER/udp
+
 To delete this message of the day: rm -rf $(readlink -f ${0})
 EOF
