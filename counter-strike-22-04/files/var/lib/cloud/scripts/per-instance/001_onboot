@@ -1,7 +1,9 @@
 #!/bin/sh
 
-echo "Counter Strike Updater..." &> /var/log/cs2-update.log
-su - steam -c "/home/steam/cs2server update-lgsm  && /home/steam/cs2server update" &> /var/log/cs2-update.log
+log_file=/var/log/cs2-update.log
+
+echo "Counter Strike Updater..." >> $log_file
+su - steam -c "/home/steam/cs2server update-lgsm  && /home/steam/cs2server update" >> $log_file
 
 # Remove the ssh force logout command
 sed -e '/Match User root/d' \
